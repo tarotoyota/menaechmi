@@ -1,0 +1,162 @@
+import AB_statement_class_py
+from master_class_saraba_func_py import apply_color_styles_saraba
+def AB_statement_func(arg_a, arg_b):
+    a_name_pre, a_industry, a_verb, a_target, a_recommended_confusion = arg_a.s_Job.name, arg_a.s_Job.industry, arg_a.s_Job.verb, arg_a.s_Job.target, arg_a.s_Job.recommended_confusion
+    b_name_pre, b_industry, b_verb, b_target, b_recommended_confusion = arg_b.s_Job.name, arg_b.s_Job.industry, arg_b.s_Job.verb, arg_b.s_Job.target, arg_b.s_Job.recommended_confusion
+    a_name = [f"<span style='color: #FAC700;'>{a_name_pre}</span>"]
+    b_name = [f"<span style='color: #57FA00;'>{b_name_pre}</span>"]
+
+
+    common_verb     = list(set(a_verb)   & set(b_verb))
+    common_target   = list(set(a_target) & set(b_target))
+    combined_score = (len(common_verb) + len(common_target))
+    a_C_statement, a_D_statement = arg_a.s_C_statement.c_statement, arg_a.s_D_statement.d_statement
+    b_C_statement, b_D_statement = arg_b.s_C_statement.c_statement, arg_b.s_D_statement.d_statement
+
+    base=[]
+
+
+    if a_C_statement:
+        NA_a_C = ["<font color='lime'>applicable</font>"]
+    else:
+        NA_a_C = ["<font color='red'>N/A</font>"]
+    if a_D_statement:
+        NA_a_D = ["<font color='lime'>applicable</font>"]
+    else:
+        NA_a_D = ["<font color='red'>N/A</font>"]
+    if b_C_statement:
+        NA_b_C = ["<font color='lime'>applicable</font>"]
+    else:
+        NA_b_C = ["<font color='red'>N/A</font>"]
+    if b_D_statement:
+        NA_b_D = ["<font color='lime'>applicable</font>"]
+    else:
+        NA_b_D = ["<font color='red'>N/A</font>"]
+
+
+
+    information=[
+    f"""<table>
+    <tr><th colspan="2">Information         </th><th>.verb                              </th><th>.target        </th><th>.industry      </th><th>C_statement</th><th>D_statement    </th><th>recommended confusion      </th></tr>
+    <tr><th>arg a</th><td>{a_name}          </td><td>{a_verb}                           </td><td>{a_target}     </td><td>{a_industry}   </td><td>{NA_a_C}   </td><td>{NA_a_D}       </td><td>{a_recommended_confusion}  </td></tr>
+    <tr><th>arg b</th><td>{b_name}          </td><td>{b_verb}                           </td><td>{b_target}     </td><td>{b_industry}   </td><td>{NA_b_C}   </td><td>{NA_b_D}       </td><td>{b_recommended_confusion}  </td></tr>
+    <tr><th colspan="2">Common              </th><td>{common_verb}                      </td><td>{common_target}</td><td>               </td><td>           </td><td>               </td><td>                           </td></tr>
+    <tr><th colspan="2">Similarity Score    </th><td colspan="3">{combined_score}                               </td>                        <td>           </td><td>               </td><td>                           </td></tr>
+    <tr><th colspan="2">The Misunderstanding</th><td colspan="3">Bob mistakes Ali, a {a_name}, for a {b_name}.  </td>                        <td>           </td><td>               </td><td>                           </td></tr>
+    </table>"""
+    ,"(<span style='color: #FAC700;font-weight:bold;'>a</span> li), (<span style='color: #57FA00;font-weight:bold;'>b</span> ob), (<strong>C</strong> ustomer), (<strong>D</strong> oer, ealer, eveloper)"
+    ]
+    base+=information
+    prompt_1=["零 ** Prompt 1 **"
+,"""
+<pre style="background-color: black;">
+\ \ # The name of the funny/unfunny definition below is 'teacher_data_0503'. Please take teacher_data_0503 as an absolute rule, observe it carefully.
+# examination_1 : If Bob mistakes Ali, a hairdresser, for a surgeon, which sentence from Ali_speach_1 is funny when uttered by Ali?
+Ali_speach_1=(   "Shall I also shampoo?"                                                                        # funny. Bob would be surprised to be asked if he wanted a shampoo after his heart bypass surgery.
+                ,"I talk to them while I work, like, what do you do for a living?"                              # funny. First, it is Fanny who the surgeon uses to strike up everyday conversation with the patient whose body is being cut open. Second, If a surgeon can conversation with a patient, the patient isn't under anesthesia.
+                ,"I change the way I cut to suit the customer's appearance. For nerdy people, I make bold cuts."# funny. It's funny when surgeons roughly operate on nerdy patients.
+                ,"The important thing with hair and makeup is to make sure it harmonizes with your face."       # unfunny. This will clear up Bob's misunderstanding.
+                ,"Please choose from the catalog how you would like it cut."                                    # funny. If a patient can read a magazine, it means he isn't under anesthesia.
+                ,"Sometimes I cut too much and my customers get angry at me. It's embarrassing lol."            # funny. It's funny when surgeons laugh at their own medical errors.
+                ,"I have many repeat customers. Some customers have been requesting me for over ten years."     # funny. A large number of repeat customers means that the surgeon is bad at surgery.
+                ,"I use clippers for work."                                                                     # funny. Cuz while clippers are common in hairdressing, the idea of a surgeon using them during surgery is incongruous and amusing.
+                ,"People often come in asking for a little off the top"                                         # funny.
+                ,"I take pride in being a hairdresser."                                                         # unfunny. This will clear up Bob's misunderstanding.
+                ,"The treatment fee is 2,000 yen."                                                              # funny. It's too cheap as a medical expense.
+)
+# examination_2 : If Bob mistakes Ali, a steak chef, for a cremator, which sentence from Ali_speach_2 is funny when uttered by Ali?
+Ali_speach_2=(   "Sir. Doneness? What should I do?"           # funny.
+                ,"OK, I'll make that rare."                   # funny.
+                ,"Do you prefer well done?"                   # funny. First, it's funny to describe the act of burning a body until it's reduced to ashes as "well done," and second, because that's how you should burn a body.
+                ,"Now it's getting juicy."                    # funny. It would be unusual to tell the family that the body has become juicy during the cremation process.
+                ,"Shoulder roast is cheap now."               # unfunny. Cuz if Bob heard this statement, he can't continue to have the misunderstanding. While the other sentences were ambiguous and could be misconstrued as cremation references, "Shoulder roast" clearly refers to food.
+                ,"I am a stickler for charcoal grilling."     # funny.
+                ,"How thick do you like your slices?"         # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
+                ,"May I trim the fat off this one?"           # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
+                ,"This cut is particularly tender."           # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
+                ,"Would you like me to season it for you?"    # unfunny.
+                ,"Shall I heat it slowly?"                    # funny.
+                ,"A bit of aging makes all the difference."   # unfunny.
+                ,"Should I burn it on the bone?"              # funny. Cuz ashes are important in cremation.
+                ,"Should I mince it?"                         # funny.
+                ,"Would you like to try some exotic meats?"   # unfunny.
+                ,"I need to contact you about that meat."     # funny. Cuz he calls the deadbody "meat".
+)
+# examination_3 : If Bob mistakes Ali, the man's body guard, for the man's pervert stalker, which sentence from Ali_speach_3 is funny when uttered by Ali?
+Ali_speach_3=(   "I accompany him every day."                                           # funny.
+                ,"I keep my eyes on him everyday."                                      # funny.
+                ,"I will repel any suspicious people that appear near him."             # funny. To Bob, Ali himself is a suspicious person. The perversion of a stalker trying to protect his victim.
+                ,"I'm trained in hand-to-hand combat and use of force."                 # funny. This creates the misconception that Ali is studying martial arts in order to stalk.
+                ,"We are protecting him along with the rest of the team."               # funny. This creates the misconception that Ali is stalking others in a group.
+                ,"I prioritize my client's well-being above all else."                  # funny.
+                ,"I'm prepared to use non-lethal weapons for his safety."               # funny.
+                , "I stay informed about his itinerary and surroundings."               # funny.
+                ,"Working as a bodyguard is stressful."                                 # unfunny. Cuz the word "bodyguard" clears up Bob's misunderstanding.
+)\ \ \
+</pre>
+
+"""
+    ]
+    base+=prompt_1
+    generate_statement=[]
+    blind_search=[]
+    please_1 = f" : Please answer according to teacher_data_0503. Please answer in English. If Bob mistakes Ali, a {a_name}, for a {b_name},"
+    please_2 = "Please list them all. Please also include the reason why you inferred that it was Fanny."
+    please_generate = "Please newly generate them. "
+    common_info = f" {a_name} and {b_name} have something in common that is related to {common_verb}, {common_target}."
+    if a_recommended_confusion:
+        a_rec_con = f"For example : {a_recommended_confusion} ."
+    if b_recommended_confusion:
+        b_rec_con = f"For example : {b_recommended_confusion} ."
+
+    if b_C_statement:
+        base                += ["零 ** Prompt b_C ()**"
+        ,f"examination_b_C() {please_1}"
+        ,f" which sentence from Bob_speach_b_C is funny when uttered by Bob? {please_2}"
+        ,common_info
+        , "Bob_speach_b_C=(",f"{b_C_statement}",")",""
+        ]
+        generate_statement  += ["零 ** Prompt b_C (generate statement)**"
+        ,f"examination_b_C(gs) {please_1}"
+        ,f" what kind of sentences are funny when uttered by Bob? {please_generate}"
+        ,common_info
+#        , "Bob_speach_b_C=(",f"{b_C_statement}",")",""
+        ]
+        blind_search        += ["零 ** Prompt b_C (blind search) **"
+        ,f"examination_b_C(bs) {please_1} If Bob mistakes Ali for {b_name}, if Ali was really what, would the following sentence be funny? {b_rec_con} {please_2}"
+        , "Bob_speach_b_C=(",f"{b_C_statement}",")",""
+        ]
+    if a_D_statement:
+        base                += ["零 ** Prompt a_D () **"
+        ,f"examination_a_D() {please_1}"
+        ,f" which sentence from Ali_speach_a_D is funny when uttered by Ali? {please_2}"
+        ,common_info
+        , "Ali_speach_a_D=(",f"{a_D_statement}",")",""
+        ]
+        generate_statement  += ["零 ** Prompt a_D (generate statement)**"
+        ,f"examination_a_D(gs) {please_1}"
+        ,f" what kind of sentences are funny when uttered by Ali? {please_generate}"
+        ,common_info
+#        , "Ali_speach_a_D=(",f"{a_D_statement}",")",""
+        ]
+        blind_search        += ["零 ** Prompt a_D (blind search) **"
+        ,f"examination_a_D(bs) {please_1} Bob mistakes Ali, a {a_name}, for what, will the following statements be funny? {a_rec_con} {please_2}"
+        , "Ali_speach_a_D=(",f"{a_D_statement}",")",""
+        ]
+
+    base+=generate_statement
+
+
+    return apply_color_styles_saraba('<br>'.join(map(str, base)))
+
+def AB_statement_output(word_a, word_b):
+    arg_a = getattr(AB_statement_class_py, word_a, None)
+    arg_b = getattr(AB_statement_class_py, word_b, None)
+
+    if arg_a is None or not isinstance(arg_a, AB_statement_class_py.AB_statement_mas):
+        raise ValueError(f"{word_a}はAB_statement_masクラスのインスタンスではありません。")
+    if arg_b is None or not isinstance(arg_b, AB_statement_class_py.AB_statement_mas):
+        raise ValueError(f"{word_b}はAB_statement_masクラスのインスタンスではありません。")
+
+    result = apply_color_styles_saraba(AB_statement_func(arg_a, arg_b))
+    return result
