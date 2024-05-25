@@ -30,7 +30,7 @@ class Job:
     attack          :str # Does this job involve hitting, hurting, destroying, invading or killing something?
     nurture         :str # Is this job a job that nurtures or grows something?
     #7
-    animate_product :str # Does this job treat life forms as products?
+    animate_product :str # Does this job treat life forms (labor, organs, livestock, slave, meat, etc.) as products?
     blood           :str # Does this job related to blood?
     food            :str # Does this job related to food?
     #8
@@ -40,6 +40,7 @@ class Job:
     #9
     bed             :str # Does this job related to bed?
     sit             :str # Does this job related to sit?
+
     #10
     industry            :str
     verb                :list
@@ -49,11 +50,12 @@ class Job:
 
 #                                    0                          ,1            ,2            ,3            ,4            ,5            ,6            ,7            ,8            ,9        ,10
 job__                           =Job(""                         ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,""   ,""            , []                                                    , []                        )
-job_butcher                     =Job("butcher"                  ,"" ,"" ,""   ,"y","" ,"y"  ,"y","" ,"y"  ,"y","" ,""   ,"y","y",""   ,"" ,"y",""   ,"" ,"y","y"  ,"" ,"" ,""   ,"" ,""   ,"restaurant"  , ["cut", "fire"]                                       , ["body","food"]           )
+job_butcher                     =Job("butcher"                  ,"" ,"" ,""   ,"y","" ,"y"  ,"y","" ,"y"  ,"y","" ,""   ,"y","y",""   ,"" ,"y",""   ,"y","y","y"  ,"" ,"" ,""   ,"" ,""   ,"restaurant"  , ["cut", "fire"]                                       , ["body","food"]           )
 job_cremator                    =Job("cremator"                 ,"" ,"" ,""   ,"y","y","y"  ,"" ,"" ,""   ,"y","" ,""   ,"y","" ,""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"" ,""   ,"y",""   ,"service"     , ["fire"]                                              , ["body"]                  )
 job_pediatrician                =Job("pediatrician"             ,"y","" ,"y"  ,"y","y","y"  ,"" ,"y",""   ,"" ,"y","y"  ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"y",""   ,"y","y",""   ,"y",""   ,"medical"     , ["cut", "fix"]                                        , ["body","drug","child"]   )
 job_veterinarian                =Job("veterinarian"             ,"y","y","y"  ,"y","y","y"  ,"" ,"y",""   ,"" ,"y","y"  ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"y","y",""   ,"y",""   ,"medical"     , ["cut", "fix"]                                        , ["body","animal"]         )
 job_surgeon                     =Job("surgeon"                  ,"y","" ,""   ,"y","y","y"  ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"y","y",""   ,"y",""   ,"medical"     , ["cut", "fix"]                                        , ["body"]                  )
+job_transplant_surgeon          =Job("transplant surgeon"       ,"y","" ,""   ,"y","y","y"  ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"y","y",""   ,"y","y",""   ,"y",""   ,"medical"     , ["cut", "fix", "plant"]                               , ["body"]                  )
 job_abortionist                 =Job("abortionist"              ,"y","" ,"y"  ,"y","y","y"  ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"y",""   ,"medical"     , ["cut", "kill"]                                       , ["body","child","baby"]   )
 job_hairdresser                 =Job("hairdresser"              ,"y","" ,""   ,"y","" ,"y"  ,"y","" ,""   ,"y","" ,""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"y","" ,""   ,"" ,""   ,"service"     , ["cut"]                                               , ["body"]                  )
 job_mma_fighter                 =Job("mma fighter"              ,"y","" ,""   ,"y","" ,"y"  ,"" ,"" ,""   ,"y","" ,""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,""   ,"sport"       , ["body contact","harm", "make sore"]                  , ["body"]                  )
@@ -61,8 +63,8 @@ job_massause                    =Job("massause"                 ,"y","" ,""   ,"
 job_play_boy                    =Job("play boy"                 ,"y","" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"" ,""   ,"y",""   ,""            , ["body contact","make feel food"]                     , ["body"]                  )
 job_soldier                     =Job("soldier"                  ,"y","" ,""   ,"y","y",""   ,"" ,"" ,"y"  ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"" ,"y"  ,"" ,""   ,"safety"      , ["body contact","harm", "kill"]                       , ["body"]                  )
 job_cop                         =Job("cop"                      ,"y","" ,""   ,"y","y",""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"" ,""   ,"" ,""   ,"safety"      , ["body contact","kill", "catch","follow","monitor"]   , ["body","property"]       )
-job_hunter                      =Job("hunter"                   ,"y","y",""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,""   ,"primary"     , ["kill", "catch","follow","monitor"]                  , ["animal","body"]         )
-job_fisherman                   =Job("fisherman"                ,"y","y",""   ,"y","" ,"y"  ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,""   ,"y","y",""   ,"" ,"y",""   ,"" ,"y",""   ,"" ,""   ,"primary"     , ["kill", "catch"]                                     , ["animal","sea","ship"]   )
+job_hunter                      =Job("hunter"                   ,"y","y",""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"y",""   ,"y","y",""   ,"" ,"y",""   ,"" ,""   ,"primary"     , ["kill", "catch","follow","monitor"]                  , ["animal","body"]         )
+job_fisherman                   =Job("fisherman"                ,"y","y",""   ,"y","" ,"y"  ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,""   ,"y","y",""   ,"y","y",""   ,"" ,"y",""   ,"" ,""   ,"primary"     , ["kill", "catch"]                                     , ["animal","sea","ship"]   )
 job_pest_controller             =Job("pest controller"          ,"y","y",""   ,"y","" ,"y"  ,"y","" ,""   ,"y","" ,""   ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,""   ,"service"     , ["kill", "catch"]                                     , ["animal","building"]     )
 job_bodyguard                   =Job("bodyguard"                ,"y","" ,""   ,"y","y","y"  ,"" ,"" ,""   ,"" ,"y","y"  ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,""   ,"safety"      , ["monitor","follow"]                                  , ["body"]                  )
 job_jailkeeper                  =Job("jailkeeper"               ,"y","" ,""   ,"y","y",""   ,"" ,"" ,""   ,"" ,"y","y"  ,"" ,"" ,""   ,"" ,"y",""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,""   ,"safety"      , ["monitor"]                                           , []                        )
@@ -78,7 +80,7 @@ job_brothel_manager             =Job("brothel manager"          ,"y","" ,""   ,"
 job_elementary_school_teacher   =Job("elementary school teacher","y","" ,"y"  ,"y","" ,""   ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"y","" ,"y"  ,"" ,""   ,"education"   , ["nurture","educate"]                                 , ["child"]                 )
 job_daycare_teacher             =Job("daycare_teacher"          ,"y","" ,"y"  ,"y","" ,"y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"y","" ,""   ,"y",""   ,"education"   , ["nurture","educate"]                                 , ["child"]                 )
 job_zookeeper                   =Job("zookeeper"                ,"y","y",""   ,"y","" ,"y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,""   ,"service"     , ["nurture"]                                           , ["animal"]                )
-job_livestock_farmer            =Job("livestock farmer"         ,"y","y",""   ,"y","" ,"y"  ,"" ,"" ,"y"  ,"y","" ,"y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"y",""   ,"" ,"y",""   ,"" ,""   ,"primary"     , ["nurture","kill"]                                    , ["animal","food"]         )
+job_livestock_farmer            =Job("livestock farmer"         ,"y","y",""   ,"y","" ,"y"  ,"" ,"" ,"y"  ,"y","" ,"y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"y","y",""   ,"" ,"y",""   ,"" ,""   ,"primary"     , ["nurture","kill"]                                    , ["animal","food"]         )
 job_farmer                      =Job("farmer"                   ,"" ,"" ,""   ,"y","" ,""   ,"" ,"" ,"y"  ,"y","" ,""   ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"y",""   ,"" ,""   ,"primary"     , ["nurture"]                                           , ["plant","food"]          )
 job_pet_owner                   =Job("pet owner"                ,"y","y",""   ,"" ,"" ,""   ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"" ,"y","y"  ,"" ,"" ,""   ,"" ,"" ,""   ,"y",""   ,""            , ["nurture"]                                           , ["animal"]                )
 job_child_rising                =Job("child raising"            ,"y","" ,"y"  ,"" ,"" ,""   ,"" ,"" ,""   ,"y","y","y"  ,"" ,"" ,""   ,"" ,"" ,"y"  ,"" ,"" ,""   ,"y","" ,""   ,"y",""   ,""            , ["nurture"]                                           , ["child"]                 )
@@ -319,7 +321,7 @@ _empty_                     = AB_statement_mas(job__                            
 _butcher                    = AB_statement_mas(job_butcher                      , C_butcher             , D_butcher)
 _cremator                   = AB_statement_mas(job_cremator                     , C_cremator            , D_cremator)
 _surgeon                    = AB_statement_mas(job_surgeon                      , C_surgeon             , D_surgeon)
-_transplant_surgeon         = AB_statement_mas(job_surgeon                      , C_surgeon             , D_surgeon)
+_transplant_surgeon         = AB_statement_mas(job_transplant_surgeon           , C_surgeon             , D_surgeon)
 _hairdresser                = AB_statement_mas(job_hairdresser                  , C_hairdresser         , D_hairdresser)
 _livestock_farmer           = AB_statement_mas(job_livestock_farmer             , C_livestock_farmer    , D_livestock_farmer)
 _veterinarian               = AB_statement_mas(job_veterinarian                 , C_veterinarian        , D_veterinarian)
@@ -360,36 +362,40 @@ def find_similar_jobs(input_statement: AB_statement_mas) -> List[Job]:
     input_job = input_statement  # .s_Jobを通じてJobインスタンスにアクセス
     similarity_scores = {}
 
-    input_job_attributes = [input_job.animate, input_job.animal, input_job.child,
-                            input_job.occupation, input_job.negative, input_job.take_money,
-                            input_job.offer_coupon, input_job.high_salary, input_job.teen,
-                            input_job.w_work, input_job.error_die, input_job.monitoring,
+    input_job_attributes = [#input_job.animate, input_job.animal, input_job.child,
+                            #input_job.occupation, input_job.negative, input_job.take_money,
+                            #input_job.offer_coupon, input_job.high_salary, input_job.teen,
+                            #input_job.w_work, input_job.error_die,
+                            input_job.monitoring,
                             input_job.burn, input_job.cut, input_job.carry,
                             input_job.drive, input_job.attack, input_job.nurture,
-                            input_job.animate_product, input_job.blood, input_job.food,
-                            input_job.fix, input_job.intelligence, input_job.strength,
-                            input_job.bed, input_job.sit]
+                            input_job.animate_product, input_job.blood,
+                            #input_job.food,
+                            #input_job.fix, input_job.intelligence, input_job.strength, input_job.bed, input_job.sit
+                            ]
 
 
     for job in Job.all_jobs:
         if job == input_job or job.industry == input_job.industry:
-            # 入力されたジョブ自身または同じ.industryのジョブは比較から除外
+            # 入力されたインスタンス自身と、同じ.industryのインスタンスを比較から除外
             continue
 
-        compare_job_attributes = [job.animate, job.animal, job.child,
-                                  job.occupation, job.negative, job.take_money,
-                                  job.offer_coupon, job.high_salary, job.teen,
-                                  job.w_work, job.error_die, job.monitoring,
+        compare_job_attributes = [#job.animate, job.animal, job.child,
+                                  #job.occupation, job.negative, job.take_money,
+                                  #job.offer_coupon, job.high_salary, job.teen,
+                                  #job.w_work, job.error_die,
+                                  job.monitoring,
                                   job.burn, job.cut, job.carry,
                                   job.drive, job.attack, job.nurture,
-                                  job.animate_product, job.blood, job.food,
-                                  job.fix, job.intelligence, job.strength,
-                                  job.bed, job.sit]
+                                  job.animate_product, job.blood,
+                                  #job.food,
+                                  #job.fix, job.intelligence, job.strength, job.bed, job.sit
+                                  ]
 
         similarity_score = sum(1 for i, j in zip(input_job_attributes, compare_job_attributes) if i == j and i != "")
         similarity_scores[id(job)] = similarity_score
 
-    top_similar_jobs = sorted((job for job in Job.all_jobs if id(job) in similarity_scores), key=lambda job: similarity_scores[id(job)], reverse=True)[:5]
+    top_similar_jobs = sorted((job for job in Job.all_jobs if id(job) in similarity_scores), key=lambda job: similarity_scores[id(job)], reverse=True)[:10]
     return top_similar_jobs
 
 def get_similar_job_names(input_statement: AB_statement_mas) -> List[str]:
