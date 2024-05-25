@@ -1,151 +1,312 @@
 import AB_statement_class_py
+
 from master_class_saraba_func_py import apply_color_styles_saraba
+
 def AB_statement_func(arg_a, arg_b):
-    a_name_pre, a_industry, a_verb, a_target, a_recommended_confusion = arg_a.s_Job.name, arg_a.s_Job.industry, arg_a.s_Job.verb, arg_a.s_Job.target, arg_a.s_Job.recommended_confusion
-    b_name_pre, b_industry, b_verb, b_target, b_recommended_confusion = arg_b.s_Job.name, arg_b.s_Job.industry, arg_b.s_Job.verb, arg_b.s_Job.target, arg_b.s_Job.recommended_confusion
-    a_name = [f"<span style='color: #FAC700;'>{a_name_pre}</span>"]
-    b_name = [f"<span style='color: #57FA00;'>{b_name_pre}</span>"]
-
-
+    a_name = f"<span style='color: #FAC700;'>{arg_a.s_Job.job_name}</span>"
+    b_name = f"<span style='color: #57FA00;'>{arg_b.s_Job.job_name}</span>"
+    a_animate, a_animal, a_child, a_occupation, a_negative, a_take_money, a_offer_coupon, a_high_salary, a_teen, a_w_work, a_error_die, a_industry, a_monitoring, a_burn, a_cut, a_carry, a_drive, a_attack, a_nurture, a_animate_product, a_blood, a_food, a_fix, a_intelligence, a_strength, a_bed, a_sit, a_verb, a_target = arg_a.s_Job.animate, arg_a.s_Job.animal, arg_a.s_Job.child, arg_a.s_Job.occupation, arg_a.s_Job.negative, arg_a.s_Job.take_money, arg_a.s_Job.offer_coupon, arg_a.s_Job.high_salary, arg_a.s_Job.teen, arg_a.s_Job.w_work, arg_a.s_Job.error_die, arg_a.s_Job.industry, arg_a.s_Job.monitoring, arg_a.s_Job.burn, arg_a.s_Job.cut, arg_a.s_Job.carry, arg_a.s_Job.drive, arg_a.s_Job.attack, arg_a.s_Job.nurture, arg_a.s_Job.animate_product, arg_a.s_Job.blood, arg_a.s_Job.food, arg_a.s_Job.fix, arg_a.s_Job.intelligence, arg_a.s_Job.strength, arg_a.s_Job.bed, arg_a.s_Job.sit, arg_a.s_Job.verb, arg_a.s_Job.target
+    b_animate, b_animal, b_child, b_occupation, b_negative, b_take_money, b_offer_coupon, b_high_salary, b_teen, b_w_work, b_error_die, b_industry, b_monitoring, b_burn, b_cut, b_carry, b_drive, b_attack, b_nurture, b_animate_product, b_blood, b_food, b_fix, b_intelligence, b_strength, b_bed, b_sit, b_verb, b_target = arg_b.s_Job.animate, arg_b.s_Job.animal, arg_b.s_Job.child, arg_b.s_Job.occupation, arg_b.s_Job.negative, arg_b.s_Job.take_money, arg_b.s_Job.offer_coupon, arg_b.s_Job.high_salary, arg_b.s_Job.teen, arg_b.s_Job.w_work, arg_b.s_Job.error_die, arg_b.s_Job.industry, arg_b.s_Job.monitoring, arg_b.s_Job.burn, arg_b.s_Job.cut, arg_b.s_Job.carry, arg_b.s_Job.drive, arg_b.s_Job.attack, arg_b.s_Job.nurture, arg_b.s_Job.animate_product, arg_b.s_Job.blood, arg_b.s_Job.food, arg_b.s_Job.fix, arg_b.s_Job.intelligence, arg_b.s_Job.strength, arg_b.s_Job.bed, arg_b.s_Job.sit, arg_b.s_Job.verb, arg_b.s_Job.target
     common_verb     = list(set(a_verb)   & set(b_verb))
     common_target   = list(set(a_target) & set(b_target))
-    combined_score = (len(common_verb) + len(common_target))
+#    combined_score = (len(common_verb) + len(common_target))
     a_C_statement, a_D_statement = arg_a.s_C_statement.c_statement, arg_a.s_D_statement.d_statement
     b_C_statement, b_D_statement = arg_b.s_C_statement.c_statement, arg_b.s_D_statement.d_statement
+    a_C_number   , a_D_number    = len(a_C_statement), len(a_D_statement)
+    b_C_number   , b_D_number    = len(b_C_statement), len(b_D_statement)
 
     base=[]
+#    pediatrician_statement = arg_a.s_Job
+#    similar_jobs = AB_statement_class_py.find_similar_jobs(pediatrician_statement)
+#
+#    base+=similar_jobs
+
+    aaa = AB_statement_class_py.get_similar_job_names(arg_a.s_Job)
+    base+=aaa
+    bbb = AB_statement_class_py.get_similar_job_names(arg_b.s_Job)
+    base+=bbb
+
+    attributes1 = [
+     (a_animate      , b_animate     , "animate")
+    ,(a_animal       , b_animal      , "animal")
+    ,(a_child        , b_child       , "child")
+    ,(a_occupation   , b_occupation  , "occupation")
+    ,(a_negative     , b_negative    , "negative")
+    ,(a_industry     , b_industry    , "industry")
+    ,(a_take_money   , b_take_money  , "take_money")
+    ,(a_offer_coupon , b_offer_coupon, "offer_coupon")
+    ,(a_high_salary  , b_high_salary , "high_salary")
+    ,(a_teen         , b_teen        , "teen")
+    ,(a_w_work       , b_w_work      , "w_work")
+    ,(a_error_die    , b_error_die   , "error_die")
+    ]
+    different = 0
+    a_y_attribute = []
+    b_y_attribute = []
+    for a_attr, b_attr, attr_name in attributes1:
+        if a_attr != b_attr:
+            different += 1
+        if a_attr == "y" and b_attr == "":
+            a_y_attribute.append(attr_name)
+        if a_attr == ""  and b_attr == "y":
+            b_y_attribute.append(attr_name)
 
 
-    if a_C_statement:
-        NA_a_C = ["<font color='lime'>applicable</font>"]
-    else:
-        NA_a_C = ["<font color='red'>N/A</font>"]
-    if a_D_statement:
-        NA_a_D = ["<font color='lime'>applicable</font>"]
-    else:
-        NA_a_D = ["<font color='red'>N/A</font>"]
-    if b_C_statement:
-        NA_b_C = ["<font color='lime'>applicable</font>"]
-    else:
-        NA_b_C = ["<font color='red'>N/A</font>"]
-    if b_D_statement:
-        NA_b_D = ["<font color='lime'>applicable</font>"]
-    else:
-        NA_b_D = ["<font color='red'>N/A</font>"]
+    attributes2 = [
+     (a_monitoring      , b_monitoring     , "monitoring")
+    ,(a_burn            , b_burn           , "burn")
+    ,(a_cut             , b_cut            , "cut")
+    ,(a_carry           , b_carry          , "carry")
+    ,(a_drive           , b_drive          , "drive")
+    ,(a_attack          , b_attack         , "Add some physical interference to something.")
+    ,(a_nurture         , b_nurture        , "nurture")
+    ,(a_animate_product , b_animate_product, "animate_product")
+    ,(a_blood           , b_blood          , "blood")
+    ,(a_food            , b_food           , "food")
+    ,(a_fix             , b_fix            , "fix")
+    ,(a_intelligence    , b_intelligence   , "intelligence")
+    ,(a_strength        , b_strength       , "strength")
+    ,(a_bed             , b_bed            , "bed")
+    ,(a_sit             , b_sit            , "sit")
+    ]
+    overlap = 0
+    overlap_attribute = []
+    for a_attr, b_attr, attr_name in attributes2:
+        if a_attr == "y" and b_attr == "y":
+            overlap += 1
+            overlap_attribute.append(attr_name)
+    a_b_different_attributes2=[]
+    for a_attr, b_attr, attr_name in attributes2:
+        if a_attr != b_attr:
+            a_b_different_attributes2.append(attr_name)
 
+    a_y_attributes2=[]
+    for a_attr, b_attr, attr_name in attributes2:
+        if a_attr == "y":
+            a_y_attributes2.append(attr_name)
 
+    b_y_attributes2=[]
+    for a_attr, b_attr, attr_name in attributes2:
+        if b_attr == "y":
+            b_y_attributes2.append(attr_name)
+
+    hint=[]
+    attr_sentence_a_y_a_D_list=[]
+    attr_sentence_b_y_a_D_list=[]
+    attr_sentence_a_y_b_C_list=[]
+    attr_sentence_b_y_b_C_list=[]
+
+    attributes_hint = [
+        (a_animate      , b_animate         , f"Unlike {b_name}, {a_name} is a job that deal with life forms."# attr_name1
+                                            , f"Unlike {a_name}, {b_name} is a job that deal with life forms."# attr_name2
+                                            ,  [] #attr_sentence_a_y_a_D
+                                            ,  [] #attr_sentence_b_y_a_D
+                                            ,   [] #attr_sentence_a_y_b_C
+                                            ,   [])#attr_sentence_b_y_b_C
+       ,(a_animal       , b_animal          , f"Unlike {b_name}, {a_name} is a job that deal with animal."
+                                            , f"Unlike {a_name}, {b_name} is a job that deal with animal."
+                                            ,  []
+                                            ,  []
+                                            ,   []
+                                            ,   [])
+       ,(a_child        , b_child           , f"Unlike {b_name}, {a_name} is a job that deal with children."
+                                            , f"Unlike {a_name}, {b_name} is a job that deal with children."
+                                            ,  ["I treat children."]
+                                            ,  ["I treat adults."]
+                                            ,   []
+                                            ,   [])
+       ,(a_occupation   , b_occupation      , f"Unlike {b_name}, {a_name} is recognized as a job."
+                                            , f"Unlike {a_name}, {b_name} is recognized as a job."
+                                            ,  ["I think I'll be able to take paid vacation.","My teammates complimented me on how talented I am.", "My parents, who are involved in this, support my activity.", "As a professional, I cannot compromise on this.","I do this for eight hours every day.","I want to quit doing this because it's tough.","I have earned my subordinates' trust.","Every day is training.","I have to strive to further improve my skills.","I earn my living from this.","I need to try harder to reassure my parents."]
+                                            ,  []
+                                            ,   []
+                                            ,   [])
+       ,(a_negative     , b_negative        , f"Unlike {b_name}, {a_name} is a negative job."
+                                            , f"Unlike {a_name}, {b_name} is a negative job."
+                                            ,  []
+                                            ,  ["I'm so busy that I can't rest. It's a happy scream.", "I want more customers!", "Please come again!"]
+                                            ,   []
+                                            ,   [])
+       ,(a_take_money   , b_take_money      , f"Unlike {b_name}, {a_name} receive money from customers."
+                                            , f"Unlike {a_name}, {b_name} receive money from customers."
+                                            ,  ["What's your budget?", "Currently discounting prices."]
+                                            ,  ["No, it's free of charge."]
+                                            ,   []
+                                            ,   ["How much should I pay?"])
+       ,(a_offer_coupon , b_offer_coupon    , f"Unlike {b_name}, {a_name} offer coupons."
+                                            , f"Unlike {a_name}, {b_name} offer coupons."
+                                            ,  ["Do you have coupons?", "Buy two, get one free!"]
+                                            ,  []
+                                            ,   []
+                                            ,   ["I have a coupon."])
+       ,(a_high_salary  , b_high_salary     , f"Unlike {b_name}, {a_name} is a well-paid job."
+                                            , f"Unlike {a_name}, {b_name} is a well-paid job."
+                                            ,  ["I make a hundred thousand dollars a year."]
+                                            ,  ["I make only a thousand dollars a year."]
+                                            ,   []
+                                            ,   [])
+       ,(a_teen         , b_teen            , f"Unlike {b_name}, {a_name} is a job that high school students can do."
+                                            , f"Unlike {a_name}, {b_name} is a job that high school students can do."
+                                            ,  ["I'm 16 years old."]
+                                            ,  []
+                                            ,   []
+                                            ,   [])
+       ,(a_w_work       , b_w_work          , f"Unlike {b_name}, {a_name} is a job where many part-time workers work."
+                                            , f"Unlike {a_name}, {b_name} is a job where many part-time workers work."
+                                            ,  ["I have a 4-hour shift on Tuesday.","I have a part-time job at a restaurant after this, so please excuse me.", "Sorry, we're only staffed with part-timers right now. Please wait for our full-time staff ", "Recently, my hourly wage went up.", "I'm on track to become a full-time employee soon."]
+                                            ,  []
+                                            ,   []
+                                            ,   [])
+       ,(a_error_die    , b_error_die       , f"Unlike {b_name}, {a_name}'s mistake cannot be tolerated."
+                                            , f"Unlike {a_name}, {b_name}'s mistake cannot be tolerated."
+                                            ,  []
+                                            ,  ["My colleagues often tease me because I often make mistakes lol."]
+                                            ,   []
+                                            ,   [])
+       ,(a_intelligence , b_intelligence    , f"Unlike {b_name}, {a_name} are required to have a high level of intelligence."
+                                            , f"Unlike {a_name}, {b_name} are required to have a high level of intelligence."
+                                            ,  ["No, I'm an Oxford University graduate."]
+                                            ,  ["No, I'm a high school graduate."]
+                                            ,   []
+                                            ,   [])
+    ]
+    for a_attr, b_attr, attr_name1, attr_name2, attr_sentence_a_y_a_D, attr_sentence_b_y_a_D, attr_sentence_a_y_b_C, attr_sentence_b_y_b_C in attributes_hint:
+        if a_attr == "y" and b_attr == "":
+            hint.append(attr_name1)
+            attr_sentence_a_y_a_D_list.append(attr_sentence_a_y_a_D)
+            attr_sentence_a_y_b_C_list.append(attr_sentence_a_y_b_C)
+        elif a_attr == "" and b_attr == "y":
+            hint.append(attr_name2)
+            attr_sentence_b_y_a_D_list.append(attr_sentence_b_y_a_D)
+            attr_sentence_b_y_b_C_list.append(attr_sentence_b_y_b_C)
+
+    attr_sentence_a_D=attr_sentence_a_y_a_D_list + attr_sentence_b_y_a_D_list
+    attr_sentence_b_C=attr_sentence_a_y_b_C_list + attr_sentence_b_y_b_C_list
+
+    if a_industry != "crime" and b_industry == "crime":
+        attr_sentence_a_D.append(["I come again.", "Why are you getting angry?","What can I do for you?"])
 
     information=[
     f"""<table>
-    <tr><th colspan="2">Information         </th><th>.verb                              </th><th>.target        </th><th>.industry      </th><th>C_statement</th><th>D_statement    </th><th>recommended confusion      </th></tr>
-    <tr><th>arg a</th><td>{a_name}          </td><td>{a_verb}                           </td><td>{a_target}     </td><td>{a_industry}   </td><td>{NA_a_C}   </td><td>{NA_a_D}       </td><td>{a_recommended_confusion}  </td></tr>
-    <tr><th>arg b</th><td>{b_name}          </td><td>{b_verb}                           </td><td>{b_target}     </td><td>{b_industry}   </td><td>{NA_b_C}   </td><td>{NA_b_D}       </td><td>{b_recommended_confusion}  </td></tr>
-    <tr><th colspan="2">Common              </th><td>{common_verb}                      </td><td>{common_target}</td><td>               </td><td>           </td><td>               </td><td>                           </td></tr>
-    <tr><th colspan="2">Similarity Score    </th><td colspan="3">{combined_score}                               </td>                        <td>           </td><td>               </td><td>                           </td></tr>
-    <tr><th colspan="2">The Misunderstanding</th><td colspan="3">Bob mistakes Ali, a {a_name}, for a {b_name}.  </td>                        <td>           </td><td>               </td><td>                           </td></tr>
-    </table>"""
-    ,"(<span style='color: #FAC700;font-weight:bold;'>a</span> li), (<span style='color: #57FA00;font-weight:bold;'>b</span> ob), (<strong>C</strong> ustomer), (<strong>D</strong> oer, ealer, eveloper)"
+    <tr><th>Information1        </th><th>                                   </th><th>C_statement    </th><th>D_statement    </th><th>Overlap({overlap} / 15)        </th><th>Different({different} / 11+1)</th></tr>
+    <tr><th>arg a               </th><td>{a_name}                           </td><td>{a_C_number}   </td><td>{a_D_number}   </td><td rowspan="2">{overlap_attribute}</td><td>{a_y_attribute}              </td></tr>
+    <tr><th>arg b               </th><td>{b_name}                           </td><td>{b_C_number}   </td><td>{b_D_number}   </td>                                        <td>{b_y_attribute}              </td></tr>
+    </table
+    """
+#    ,f"Premise : Bob mistakes Ali, a {a_name}, for a {b_name}."
+#    ,"(<span style='color: #FAC700;font-weight:bold;'>a</span> li), (<span style='color: #57FA00;font-weight:bold;'>b</span> ob), (<strong>C</strong> ustomer), (<strong>D</strong> oer, ealer, eveloper)"
     ]
     base+=information
+
     prompt_1=["零 ** Prompt 1 **"
 ,"""
-<pre style="background-color: black;">
-\ \ # The name of the funny/unfunny definition below is 'teacher_data_0503'. Please take teacher_data_0503 as an absolute rule, observe it carefully.
-# examination_1 : If Bob mistakes Ali, a hairdresser, for a surgeon, which sentence from Ali_speach_1 is funny when uttered by Ali?
-Ali_speach_1=(   "Shall I also shampoo?"                                                                        # funny. Bob would be surprised to be asked if he wanted a shampoo after his heart bypass surgery.
-                ,"I talk to them while I work, like, what do you do for a living?"                              # funny. First, it is Fanny who the surgeon uses to strike up everyday conversation with the patient whose body is being cut open. Second, If a surgeon can conversation with a patient, the patient isn't under anesthesia.
-                ,"I change the way I cut to suit the customer's appearance. For nerdy people, I make bold cuts."# funny. It's funny when surgeons roughly operate on nerdy patients.
-                ,"The important thing with hair and makeup is to make sure it harmonizes with your face."       # unfunny. This will clear up Bob's misunderstanding.
-                ,"Please choose from the catalog how you would like it cut."                                    # funny. If a patient can read a magazine, it means he isn't under anesthesia.
-                ,"Sometimes I cut too much and my customers get angry at me. It's embarrassing lol."            # funny. It's funny when surgeons laugh at their own medical errors.
-                ,"I have many repeat customers. Some customers have been requesting me for over ten years."     # funny. A large number of repeat customers means that the surgeon is bad at surgery.
-                ,"I use clippers for work."                                                                     # funny. Cuz while clippers are common in hairdressing, the idea of a surgeon using them during surgery is incongruous and amusing.
-                ,"People often come in asking for a little off the top"                                         # funny.
-                ,"I take pride in being a hairdresser."                                                         # unfunny. This will clear up Bob's misunderstanding.
-                ,"The treatment fee is 2,000 yen."                                                              # funny. It's too cheap as a medical expense.
+<font size="0.1"><pre>
+teacher_data_0503 = '''The name of the funny/unfunny definition below is 'teacher_data_0503'. Please take teacher_data_0503 as an absolute rule, observe it carefully.
+# exam_1 : If Bob mistakes Ali, a hairdresser, for a surgeon, which sentence from Ali_speech_1 is funny when uttered by Ali? In other words, What kind of sentences would make Bob angry or surprised?
+Ali_speech_1=("I talk to them while I work, like, what do you do for a living?"                 # funny. First, it is funny who the surgeon uses to strike up everyday conversation with the patient whose body is being cut open. Second, If a surgeon can conversation with a patient, the patient isn't under anesthesia.
+,"I change the way I cut to suit the customer's appearance. For nerdy people, I make bold cuts."# funny. It's funny when surgeons roughly operate on nerdy patients.
+,"The important thing with hair and makeup is to make sure it harmonizes with your face."       # unfunny. This will clear up Bob's misunderstanding.
+,"Please read this magazine during your treatment."                                             # funny. If a patient can read a magazine, it means he isn't under anesthesia.
+,"Please choose from the catalog how you would like it cut."                                    # funny
+,"Sometimes I cut too much and my customers get angry at me. It's embarrassing lol."            # funny. It's funny when surgeons laugh at their own medical errors.
+,"I have many repeat customers. Some customers have been requesting me for over ten years."     # funny. A large number of repeat customers means that the surgeon is bad at surgery.
+,"People often come in asking for a little off the top"                                         # funny
+,"How much should I leave?"                                                                     # funny. Surgeons should not leave any tumor behind.
+,"I take pride in being a hairdresser."                                                         # unfunny. This will clear up Bob's misunderstanding.
+,"The treatment fee is 2,000 yen."                                                              # funny. It's too cheap as a medical expense.
+,"No, I'm a high school graduate."    # funny. High school graduate surgeons are scary.
+,"I prefer my 'patients'... I mean customers whose hair grows freely" # unfunny. It's unfunny that Ali purposely promotes Bob's misunderstanding. Jokes that rely on double quotes and "I mean" are never funny.
 )
-# examination_2 : If Bob mistakes Ali, a steak chef, for a cremator, which sentence from Ali_speach_2 is funny when uttered by Ali?
-Ali_speach_2=(   "Sir. Doneness? What should I do?"           # funny.
-                ,"OK, I'll make that rare."                   # funny.
-                ,"Do you prefer well done?"                   # funny. First, it's funny to describe the act of burning a body until it's reduced to ashes as "well done," and second, because that's how you should burn a body.
-                ,"Now it's getting juicy."                    # funny. It would be unusual to tell the family that the body has become juicy during the cremation process.
-                ,"Shoulder roast is cheap now."               # unfunny. Cuz if Bob heard this statement, he can't continue to have the misunderstanding. While the other sentences were ambiguous and could be misconstrued as cremation references, "Shoulder roast" clearly refers to food.
-                ,"I am a stickler for charcoal grilling."     # funny.
-                ,"How thick do you like your slices?"         # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
-                ,"May I trim the fat off this one?"           # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
-                ,"This cut is particularly tender."           # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
-                ,"Would you like me to season it for you?"    # unfunny.
-                ,"Shall I heat it slowly?"                    # funny.
-                ,"A bit of aging makes all the difference."   # unfunny.
-                ,"Should I burn it on the bone?"              # funny. Cuz ashes are important in cremation.
-                ,"Should I mince it?"                         # funny.
-                ,"Would you like to try some exotic meats?"   # unfunny.
-                ,"I need to contact you about that meat."     # funny. Cuz he calls the deadbody "meat".
+# exam_2 : If Bob mistakes Ali, a steak chef, for a cremator, which sentence from Ali_speech_2 is funny when uttered by Ali? In other words, What kind of sentences would make Bob angry or surprised?
+Ali_speech_2=("Sir. Doneness? What should I do?"           # funny
+,"OK, I'll make that rare."                   # funny
+,"Now it's getting juicy."                    # funny. It would be unusual to tell the family that the body has become juicy during the cremation process.
+,"Shoulder roast is cheap now."               # unfunny. This will clear up Bob's misunderstanding. While the other sentences were ambiguous and could be misconstrued as cremation references, "Shoulder roast" clearly refers to food.
+,"I am a stickler for charcoal grilling."     # funny
+,"How thick do you like your slices?"         # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
+,"May I trim the fat off this one?"           # unfunny. Same reason above.
+,"This cut is particularly tender."           # unfunny. Same reason above.
+,"Would you like me to season it for you?"    # unfunny.
+,"Shall I heat it slowly?"                    # funny
+,"A bit of aging makes all the difference."   # unfunny
+,"Should I burn it on the bone?"              # funny. Cuz ashes are important in cremation.
+,"Would you like to try some exotic meats?"   # unfunny
+,"I need to contact you about that meat."     # funny. Cuz he calls the deadbody "meat".
+,"Do you have a coupon or stamp card?"        # funny. It's disgusting that crematoriums offer stamp cards.
+,"I like to roast corpses... I mean roast meat." # unfunny. It's unfunny to Ali purposely misleads Bob. Jokes that use triple dots and double quotes are not funny at all.
 )
-# examination_3 : If Bob mistakes Ali, the man's body guard, for the man's pervert stalker, which sentence from Ali_speach_3 is funny when uttered by Ali?
-Ali_speach_3=(   "I accompany him every day."                                           # funny.
-                ,"I keep my eyes on him everyday."                                      # funny.
-                ,"I will repel any suspicious people that appear near him."             # funny. To Bob, Ali himself is a suspicious person. The perversion of a stalker trying to protect his victim.
-                ,"I'm trained in hand-to-hand combat and use of force."                 # funny. This creates the misconception that Ali is studying martial arts in order to stalk.
-                ,"We are protecting him along with the rest of the team."               # funny. This creates the misconception that Ali is stalking others in a group.
-                ,"I prioritize my client's well-being above all else."                  # funny.
-                ,"I'm prepared to use non-lethal weapons for his safety."               # funny.
-                , "I stay informed about his itinerary and surroundings."               # funny.
-                ,"Working as a bodyguard is stressful."                                 # unfunny. Cuz the word "bodyguard" clears up Bob's misunderstanding.
-)\ \ \
-</pre>
-
+# exam_3 : If Bob mistakes Ali, a elementary school teacher, for a pervert, which sentence from Ali_speech_3 is funny when uttered by Ali? In other words, What kind of sentences would make Bob angry or surprised?
+Ali_speech_3=("It's difficult when many children won't be quiet."  # funny
+,"It's hard to keep kids tied to chairs."             # funny. Bob would not recognize the idiom "Keep ~ tied to" as an idiom.
+,"I often play tag with the children."                # funny
+,"I'm looking forward to the dismissal time."         # funny
+,"I appreciate the parents who are always supportive of my activities." # funny. Bob mistakenly assumes that the pervert Ali is grateful to the parents for providing him with children.
+,"She's artwork is always so creative and colorful."       # unfunny
+,"We've been learning about fractions in math class."      # unfunny
+,"It's tiring to deal with forty children alone."# funny
+)'''
+</pre></font>
 """
     ]
     base+=prompt_1
-    generate_statement=[]
-    blind_search=[]
+
     please_1 = f" : Please answer according to teacher_data_0503. Please answer in English. If Bob mistakes Ali, a {a_name}, for a {b_name},"
-    please_2 = "Please list them all. Please also include the reason why you inferred that it was Fanny."
-    please_generate = "Please newly generate them. "
-    common_info = f" {a_name} and {b_name} have something in common that is related to {common_verb}, {common_target}."
-    if a_recommended_confusion:
-        a_rec_con = f"For example : {a_recommended_confusion} ."
-    if b_recommended_confusion:
-        b_rec_con = f"For example : {b_recommended_confusion} ."
+    common_info   = f" {a_name} and {b_name} have something in common that is related to ({common_verb}, {common_target}, {overlap_attribute})."
+    in_other_words="In other words, What kind of sentences would make Bob angry or surprised?"
+    pick_prompt = "Please list them all. Please also include the reason why you inferred that it was funny. Please list seven or more."
 
-    if b_C_statement:
-        base                += ["零 ** Prompt b_C ()**"
-        ,f"examination_b_C() {please_1}"
-        ,f" which sentence from Bob_speach_b_C is funny when uttered by Bob? {please_2}"
-        ,common_info
-        , "Bob_speach_b_C=(",f"{b_C_statement}",")",""
-        ]
-        generate_statement  += ["零 ** Prompt b_C (generate statement)**"
-        ,f"examination_b_C(gs) {please_1}"
-        ,f" what kind of sentences are funny when uttered by Bob? {please_generate}"
-        ,common_info
-#        , "Bob_speach_b_C=(",f"{b_C_statement}",")",""
-        ]
-        blind_search        += ["零 ** Prompt b_C (blind search) **"
-        ,f"examination_b_C(bs) {please_1} If Bob mistakes Ali for {b_name}, if Ali was really what, would the following sentence be funny? {b_rec_con} {please_2}"
-        , "Bob_speach_b_C=(",f"{b_C_statement}",")",""
-        ]
-    if a_D_statement:
-        base                += ["零 ** Prompt a_D () **"
-        ,f"examination_a_D() {please_1}"
-        ,f" which sentence from Ali_speach_a_D is funny when uttered by Ali? {please_2}"
-        ,common_info
-        , "Ali_speach_a_D=(",f"{a_D_statement}",")",""
-        ]
-        generate_statement  += ["零 ** Prompt a_D (generate statement)**"
-        ,f"examination_a_D(gs) {please_1}"
-        ,f" what kind of sentences are funny when uttered by Ali? {please_generate}"
-        ,common_info
-#        , "Ali_speach_a_D=(",f"{a_D_statement}",")",""
-        ]
-        blind_search        += ["零 ** Prompt a_D (blind search) **"
-        ,f"examination_a_D(bs) {please_1} Bob mistakes Ali, a {a_name}, for what, will the following statements be funny? {a_rec_con} {please_2}"
-        , "Ali_speach_a_D=(",f"{a_D_statement}",")",""
-        ]
+    prompt_pick_from_attr_sentence=[f"""
+    <table>
+    <tr><th>Prompt Pick from attr sentence                                                                          </th></tr>
+    <tr><th>examination b_C(pick_from_attr_sentence)                                                                </th></tr>
+    <tr><td>{please_1} which sentence from Bob_speech_b_C is funny when uttered by Bob? {in_other_words} {pick_prompt} {common_info} Hint:{hint}</td></tr>
+    <tr><td>Bob_speech_b_C=({attr_sentence_b_C})                                                                    </td></tr>
+    <tr><th>examination a_D(pick_from_attr_sentence)                                                                </th></tr>
+    <tr><td>{please_1} which sentence from Ali_speech_a_D is funny when uttered by Ali? {in_other_words} {pick_prompt} {common_info} Hint:{hint}</td></tr>
+    <tr><td>Ali_speech_a_D=({attr_sentence_a_D})                                                                    </td></tr>
+    </table>
+    """]
+    base+=prompt_pick_from_attr_sentence
 
-    base+=generate_statement
+    prompt_pick=[f"""
+    <table>
+    <tr><th>Prompt Pick                                                                                             </th></tr>
+    <tr><th>examination b_C(pick)                                                                                   </th></tr>
+    <tr><td>{please_1} which sentence from Bob_speech_b_C is funny when uttered by Bob? {in_other_words} {pick_prompt} {common_info} Hint:{hint}</td></tr>
+    <tr><td>Bob_speech_b_C=({b_C_statement})                                                                        </td></tr>
+    <tr><th>examination a_D(pick)                                                                                   </th></tr>
+    <tr><td>{please_1} which sentence from Ali_speech_a_D is funny when uttered by Ali? {in_other_words} {pick_prompt} {common_info} Hint:{hint}</td></tr>
+    <tr><td>Ali_speech_a_D=({a_D_statement})                                                                        </td></tr>
+    </table>
+    """]
+    base+=prompt_pick
 
+    generate_prompt = "For example, if Bob mistakes Ali, a butcher, for a surgeon, it's not funny for Ali to paraphrase meat as 'patient' or to paraphrase butchering as 'surgery'. It's not funny at all for Ali to deliberately encourage Bob's misunderstanding. When Bob mistakes Ali the butcher for Ali the surgeon, it's not funny at all for Ali to say, 'I like to roast ''corpses''... I mean roast meat.' Because Ali is deliberately encouraging Bob's misunderstanding by rephrasing. And jokes that rely on quotes or '...' are not funny. Misunderstandings must be unintentional. Generate the sentences without any comment or annotation."
+    prompt_generate=[f"""
+    <table>
+    <tr><th>Prompt Generate                                                                                                                     </th></tr>
+    <tr><th>examination b_C(generate)                                                                                                           </th></tr>
+    <tr><td>{please_1} what kind of sentences are funny when uttered by Bob? In other words, what kind of sentences would make Ali angry or surprised?  Please newly generate them without any comment or annotation. It's unfunny when Bob uses language that is intentionally misleading. {generate_prompt} {common_info}    </td></tr>
+    <tr><th>examination a_D(generate)                                                                                                           </th></tr>
+    <tr><td>{please_1} what kind of sentences are funny when uttered by Ali? In other words, what kind of sentences would make Bob angry or surprised?  Please newly generate them without any comment or annotation. It's unfunny when Ali uses language that is intentionally misleading. {generate_prompt} {common_info}    </td></tr>
+    </table>
+    """]
+    base+=prompt_generate
+
+
+    add_prompt=["I don't need poems or jokes or monologues or annotations or programming comments. Please reply with only the newly added statement. Do not modify exist statement."]
+    prompt_add=[f"""
+    <table>
+    <tr><th>Prompt Add                                                                                                                          </th></tr>
+    <tr><th>examination b_C(add)                                                                                                                </th></tr>
+    <tr><td>In Bob_speech_b_C, Add 30 new short English statements about ({b_y_attributes2}) that a {b_name}'s customer would say. {add_prompt} </td></tr>
+    <tr><td>Bob_speech_b_C=({b_C_statement})                                                                                                    </td></tr>
+    <tr><th>examination a_D(add)                                                                                                                </th></tr>
+    <tr><td>In Ali_speech_a_D, Add 30 new short English statements about ({a_y_attributes2}) that a {a_name} would say. {add_prompt}            </td></tr>
+    <tr><td>Ali_speech_a_D=({a_D_statement})                                                                                                    </td></tr>
+    </table>
+    """]
+    base+=prompt_add
 
     return apply_color_styles_saraba('<br>'.join(map(str, base)))
 
