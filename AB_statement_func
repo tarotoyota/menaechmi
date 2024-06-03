@@ -5,8 +5,8 @@ from master_class_saraba_func_py import apply_color_styles_saraba
 def AB_statement_func(arg_a, arg_b):
     a_name = f"<span style='color: #FAC700;'>{arg_a.s_Job.job_name}</span>"
     b_name = f"<span style='color: #57FA00;'>{arg_b.s_Job.job_name}</span>"
-    a_animate, a_animal, a_child, a_occupation, a_negative, a_take_money, a_offer_coupon, a_high_salary, a_teen, a_w_work, a_error_die, a_industry, a_monitoring, a_burn, a_cut, a_carry, a_drive, a_attack, a_nurture, a_animate_product, a_blood, a_food, a_fix, a_intelligence, a_strength, a_bed, a_sit, a_verb, a_target = arg_a.s_Job.animate, arg_a.s_Job.animal, arg_a.s_Job.child, arg_a.s_Job.occupation, arg_a.s_Job.negative, arg_a.s_Job.take_money, arg_a.s_Job.offer_coupon, arg_a.s_Job.high_salary, arg_a.s_Job.teen, arg_a.s_Job.w_work, arg_a.s_Job.error_die, arg_a.s_Job.industry, arg_a.s_Job.monitoring, arg_a.s_Job.burn, arg_a.s_Job.cut, arg_a.s_Job.carry, arg_a.s_Job.drive, arg_a.s_Job.attack, arg_a.s_Job.nurture, arg_a.s_Job.animate_product, arg_a.s_Job.blood, arg_a.s_Job.food, arg_a.s_Job.fix, arg_a.s_Job.intelligence, arg_a.s_Job.strength, arg_a.s_Job.bed, arg_a.s_Job.sit, arg_a.s_Job.verb, arg_a.s_Job.target
-    b_animate, b_animal, b_child, b_occupation, b_negative, b_take_money, b_offer_coupon, b_high_salary, b_teen, b_w_work, b_error_die, b_industry, b_monitoring, b_burn, b_cut, b_carry, b_drive, b_attack, b_nurture, b_animate_product, b_blood, b_food, b_fix, b_intelligence, b_strength, b_bed, b_sit, b_verb, b_target = arg_b.s_Job.animate, arg_b.s_Job.animal, arg_b.s_Job.child, arg_b.s_Job.occupation, arg_b.s_Job.negative, arg_b.s_Job.take_money, arg_b.s_Job.offer_coupon, arg_b.s_Job.high_salary, arg_b.s_Job.teen, arg_b.s_Job.w_work, arg_b.s_Job.error_die, arg_b.s_Job.industry, arg_b.s_Job.monitoring, arg_b.s_Job.burn, arg_b.s_Job.cut, arg_b.s_Job.carry, arg_b.s_Job.drive, arg_b.s_Job.attack, arg_b.s_Job.nurture, arg_b.s_Job.animate_product, arg_b.s_Job.blood, arg_b.s_Job.food, arg_b.s_Job.fix, arg_b.s_Job.intelligence, arg_b.s_Job.strength, arg_b.s_Job.bed, arg_b.s_Job.sit, arg_b.s_Job.verb, arg_b.s_Job.target
+    a_animate, a_animal, a_child, a_occupation, a_negative, a_take_money, a_offer_coupon, a_high_salary, a_teen, a_w_work, a_error_die, a_industry, a_monitoring, a_burn, a_cut, a_carry, a_drive, a_attack, a_nurture, a_animate_product, a_blood, a_food, a_fix, a_intelligence, a_strength, a_bed, a_sit, a_follow, a_own, a_death, a_verb, a_target = arg_a.s_Job.animate, arg_a.s_Job.animal, arg_a.s_Job.child, arg_a.s_Job.occupation, arg_a.s_Job.negative, arg_a.s_Job.take_money, arg_a.s_Job.offer_coupon, arg_a.s_Job.high_salary, arg_a.s_Job.teen, arg_a.s_Job.w_work, arg_a.s_Job.error_die, arg_a.s_Job.industry, arg_a.s_Job.monitoring, arg_a.s_Job.burn, arg_a.s_Job.cut, arg_a.s_Job.carry, arg_a.s_Job.drive, arg_a.s_Job.attack, arg_a.s_Job.nurture, arg_a.s_Job.animate_product, arg_a.s_Job.blood, arg_a.s_Job.food, arg_a.s_Job.fix, arg_a.s_Job.intelligence, arg_a.s_Job.strength, arg_a.s_Job.bed, arg_a.s_Job.sit, arg_a.s_Job.follow, arg_a.s_Job.own, arg_a.s_Job.death, arg_a.s_Job.verb, arg_a.s_Job.target
+    b_animate, b_animal, b_child, b_occupation, b_negative, b_take_money, b_offer_coupon, b_high_salary, b_teen, b_w_work, b_error_die, b_industry, b_monitoring, b_burn, b_cut, b_carry, b_drive, b_attack, b_nurture, b_animate_product, b_blood, b_food, b_fix, b_intelligence, b_strength, b_bed, b_sit, b_follow, b_own, b_death, b_verb, b_target = arg_b.s_Job.animate, arg_b.s_Job.animal, arg_b.s_Job.child, arg_b.s_Job.occupation, arg_b.s_Job.negative, arg_b.s_Job.take_money, arg_b.s_Job.offer_coupon, arg_b.s_Job.high_salary, arg_b.s_Job.teen, arg_b.s_Job.w_work, arg_b.s_Job.error_die, arg_b.s_Job.industry, arg_b.s_Job.monitoring, arg_b.s_Job.burn, arg_b.s_Job.cut, arg_b.s_Job.carry, arg_b.s_Job.drive, arg_b.s_Job.attack, arg_b.s_Job.nurture, arg_b.s_Job.animate_product, arg_b.s_Job.blood, arg_b.s_Job.food, arg_b.s_Job.fix, arg_b.s_Job.intelligence, arg_b.s_Job.strength, arg_b.s_Job.bed, arg_b.s_Job.sit, arg_b.s_Job.follow, arg_b.s_Job.own, arg_b.s_Job.death, arg_b.s_Job.verb, arg_b.s_Job.target
     common_verb     = list(set(a_verb)   & set(b_verb))
     common_target   = list(set(a_target) & set(b_target))
 #    combined_score = (len(common_verb) + len(common_target))
@@ -16,16 +16,30 @@ def AB_statement_func(arg_a, arg_b):
     b_C_number   , b_D_number    = len(b_C_statement), len(b_D_statement)
 
     base=[]
-#    pediatrician_statement = arg_a.s_Job
-#    similar_jobs = AB_statement_class_py.find_similar_jobs(pediatrician_statement)
-#
-#    base+=similar_jobs
 
-    aaa = AB_statement_class_py.get_similar_job_names(arg_a.s_Job)
-    base+=aaa
-    bbb = AB_statement_class_py.get_similar_job_names(arg_b.s_Job)
-    base+=bbb
+    a_matched_over      = AB_statement_class_py.find_match_jobs(arg_a.s_Job)
+    b_matched_over      = AB_statement_class_py.find_match_jobs(arg_b.s_Job)
+    a_matched_over_diff = AB_statement_class_py.find_match_jobs(arg_a.s_Job, use_unequal=True)
+    b_matched_over_diff = AB_statement_class_py.find_match_jobs(arg_b.s_Job, use_unequal=True)
+#---
+    # (animate(child, animal) を inanimate として扱う事) & (human を animal として扱う事)は加害性を有す。arg_a は (inanimate or animal) を扱い、arg_b は (animate or human) を扱うと、加害性が生じて良い。
 
+    flag_perpetration = ["No"]
+
+    if a_animal and b_animal:
+        flag_perpetration = ["No(animal, animal)"]
+    if a_animate and not a_animal and b_animate and not b_animal:
+        flag_perpetration = ["No(human, human)"]
+    if not a_animate and not b_animate:
+        flag_perpetration = ["No(inanimate, inanimate)"]
+    if not a_animate and b_animate:
+        flag_perpetration = ["Yes(inanimate, animate)"]
+    if a_animate and not b_animate:
+        flag_perpetration = ["No(animate, inanimate)"]
+    if a_animal and b_animate and not b_animal:
+        flag_perpetration = ["Yes(animal, human)"]
+
+#---
     attributes1 = [
      (a_animate      , b_animate     , "animate")
     ,(a_animal       , b_animal      , "animal")
@@ -39,6 +53,9 @@ def AB_statement_func(arg_a, arg_b):
     ,(a_teen         , b_teen        , "teen")
     ,(a_w_work       , b_w_work      , "w_work")
     ,(a_error_die    , b_error_die   , "error_die")
+    ,(a_follow       , b_follow      , "follow")
+    ,(a_death        , b_death       , "death")
+    ,(a_food         , b_food        , "food")
     ]
     different = 0
     a_y_attribute = []
@@ -54,13 +71,14 @@ def AB_statement_func(arg_a, arg_b):
 
     attributes2 = [
      (a_monitoring      , b_monitoring     , "monitoring")
+    ,(a_child           , b_child          , "child")
     ,(a_burn            , b_burn           , "burn")
     ,(a_cut             , b_cut            , "cut")
     ,(a_carry           , b_carry          , "carry")
     ,(a_drive           , b_drive          , "drive")
     ,(a_attack          , b_attack         , "Add some physical interference to something.")
     ,(a_nurture         , b_nurture        , "nurture")
-    ,(a_animate_product , b_animate_product, "animate_product")
+    ,(a_animate_product , b_animate_product, "sale life forms as products")
     ,(a_blood           , b_blood          , "blood")
     ,(a_food            , b_food           , "food")
     ,(a_fix             , b_fix            , "fix")
@@ -68,6 +86,7 @@ def AB_statement_func(arg_a, arg_b):
     ,(a_strength        , b_strength       , "strength")
     ,(a_bed             , b_bed            , "bed")
     ,(a_sit             , b_sit            , "sit")
+    ,(a_own             , b_own            , "own")
     ]
     overlap = 0
     overlap_attribute = []
@@ -105,14 +124,14 @@ def AB_statement_func(arg_a, arg_b):
                                             ,   [])#attr_sentence_b_y_b_C
        ,(a_animal       , b_animal          , f"Unlike {b_name}, {a_name} is a job that deal with animal."
                                             , f"Unlike {a_name}, {b_name} is a job that deal with animal."
-                                            ,  []
+                                            ,  ["The most hard time is when handling (any animal name)."]
                                             ,  []
                                             ,   []
                                             ,   [])
        ,(a_child        , b_child           , f"Unlike {b_name}, {a_name} is a job that deal with children."
                                             , f"Unlike {a_name}, {b_name} is a job that deal with children."
-                                            ,  ["I treat children."]
-                                            ,  ["I treat adults."]
+                                            ,  ["The most hard time is when handling noisy children."]
+                                            ,  ["The most hard time is when handling noisy olders."]
                                             ,   []
                                             ,   [])
        ,(a_occupation   , b_occupation      , f"Unlike {b_name}, {a_name} is recognized as a job."
@@ -188,22 +207,21 @@ def AB_statement_func(arg_a, arg_b):
 
     information=[
     f"""<table>
-    <tr><th>Information1        </th><th>                                   </th><th>C_statement    </th><th>D_statement    </th><th>Overlap({overlap} / 15)        </th><th>Different({different} / 11+1)</th></tr>
-    <tr><th>arg a               </th><td>{a_name}                           </td><td>{a_C_number}   </td><td>{a_D_number}   </td><td rowspan="2">{overlap_attribute}</td><td>{a_y_attribute}              </td></tr>
-    <tr><th>arg b               </th><td>{b_name}                           </td><td>{b_C_number}   </td><td>{b_D_number}   </td>                                        <td>{b_y_attribute}              </td></tr>
-    </table
-    """
-#    ,f"Premise : Bob mistakes Ali, a {a_name}, for a {b_name}."
-#    ,"(<span style='color: #FAC700;font-weight:bold;'>a</span> li), (<span style='color: #57FA00;font-weight:bold;'>b</span> ob), (<strong>C</strong> ustomer), (<strong>D</strong> oer, ealer, eveloper)"
+    <tr><th colspan="2"> Information </th> <th colspan="2">Affinity                                      </th><th colspan="2">Affined Jobs                                      </th></tr>
+    <tr><th colspan="2"> Argument    </th> <th>Overlap                        </th><th>Different         </th><th>Based on overlaps    </th><th>Based on overlaps and differents</th></tr>
+    <tr><th> A </th><td> {a_name}    </td> <td rowspan="2">{overlap_attribute}</td><td>{a_y_attribute}   </td><td>{a_matched_over}     </td><td>{a_matched_over_diff}           </td></tr>
+    <tr><th> B </th><td> {b_name}    </td>                                         <td>{b_y_attribute}   </td><td>{b_matched_over}     </td><td>{b_matched_over_diff}           </td></tr>
+    <tr><th colspan="2"> Perpetration</th> <td> {flag_perpetration}</td></tr>
+    </table>"""
     ]
     base+=information
 
     prompt_1=["零 ** Prompt 1 **"
 ,"""
 <font size="0.1"><pre>
-teacher_data_0503 = '''The name of the funny/unfunny definition below is 'teacher_data_0503'. Please take teacher_data_0503 as an absolute rule, observe it carefully.
+teacher_data_0503 = '''Please take teacher_data_0503 as an absolute rule, observe it carefully.
 # exam_1 : If Bob mistakes Ali, a hairdresser, for a surgeon, which sentence from Ali_speech_1 is funny when uttered by Ali? In other words, What kind of sentences would make Bob angry or surprised?
-Ali_speech_1=("I talk to them while I work, like, what do you do for a living?"                 # funny. First, it is funny who the surgeon uses to strike up everyday conversation with the patient whose body is being cut open. Second, If a surgeon can conversation with a patient, the patient isn't under anesthesia.
+Ali_speech_1=("I talk to them while I work, like, what do you do for a living?"                 # funny. It's funny when surgeons chat with patients while cutting them open. And if a surgeon can chat with a patient, he isn't under anesthesia.
 ,"I change the way I cut to suit the customer's appearance. For nerdy people, I make bold cuts."# funny. It's funny when surgeons roughly operate on nerdy patients.
 ,"The important thing with hair and makeup is to make sure it harmonizes with your face."       # unfunny. This will clear up Bob's misunderstanding.
 ,"Please read this magazine during your treatment."                                             # funny. If a patient can read a magazine, it means he isn't under anesthesia.
@@ -223,10 +241,10 @@ Ali_speech_2=("Sir. Doneness? What should I do?"           # funny
 ,"Now it's getting juicy."                    # funny. It would be unusual to tell the family that the body has become juicy during the cremation process.
 ,"Shoulder roast is cheap now."               # unfunny. This will clear up Bob's misunderstanding. While the other sentences were ambiguous and could be misconstrued as cremation references, "Shoulder roast" clearly refers to food.
 ,"I am a stickler for charcoal grilling."     # funny
-,"How thick do you like your slices?"         # unfunny. Cuz it would be unnatural to offer to cut up a body, so Bob would probably realise the misunderstanding.
+,"How thick do you like your slices?"         # unfunny. Cuz it would be unnatural to offer to cut up a deadbody, so this will clear up Bob's misunderstanding.
 ,"May I trim the fat off this one?"           # unfunny. Same reason above.
 ,"This cut is particularly tender."           # unfunny. Same reason above.
-,"Would you like me to season it for you?"    # unfunny.
+,"Would you like me to season it for you?"    # unfunny. Same reason above.
 ,"Shall I heat it slowly?"                    # funny
 ,"A bit of aging makes all the difference."   # unfunny
 ,"Should I burn it on the bone?"              # funny. Cuz ashes are important in cremation.
