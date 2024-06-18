@@ -5,13 +5,13 @@ from master_class_saraba_func_py import apply_color_styles_saraba
 def AB_statement_func(arg_a, arg_b):
     a_name = f"<span style='color: #FAC700;'>{arg_a.s_Job.job_name}</span>"
     b_name = f"<span style='color: #57FA00;'>{arg_b.s_Job.job_name}</span>"
-    a_animate, a_animal, a_child, a_occupation, a_negative, a_take_money, a_offer_coupon, a_high_salary, a_teen, a_w_work, a_error_die, a_industry, a_monitoring, a_burn, a_cut, a_carry, a_drive, a_attack, a_nurture, a_animate_product, a_blood, a_food, a_fix, a_intelligence, a_strength, a_bed, a_sit, a_follow, a_own, a_death, a_verb, a_target = arg_a.s_Job.animate, arg_a.s_Job.animal, arg_a.s_Job.child, arg_a.s_Job.occupation, arg_a.s_Job.negative, arg_a.s_Job.take_money, arg_a.s_Job.offer_coupon, arg_a.s_Job.high_salary, arg_a.s_Job.teen, arg_a.s_Job.w_work, arg_a.s_Job.error_die, arg_a.s_Job.industry, arg_a.s_Job.monitoring, arg_a.s_Job.burn, arg_a.s_Job.cut, arg_a.s_Job.carry, arg_a.s_Job.drive, arg_a.s_Job.attack, arg_a.s_Job.nurture, arg_a.s_Job.animate_product, arg_a.s_Job.blood, arg_a.s_Job.food, arg_a.s_Job.fix, arg_a.s_Job.intelligence, arg_a.s_Job.strength, arg_a.s_Job.bed, arg_a.s_Job.sit, arg_a.s_Job.follow, arg_a.s_Job.own, arg_a.s_Job.death, arg_a.s_Job.verb, arg_a.s_Job.target
-    b_animate, b_animal, b_child, b_occupation, b_negative, b_take_money, b_offer_coupon, b_high_salary, b_teen, b_w_work, b_error_die, b_industry, b_monitoring, b_burn, b_cut, b_carry, b_drive, b_attack, b_nurture, b_animate_product, b_blood, b_food, b_fix, b_intelligence, b_strength, b_bed, b_sit, b_follow, b_own, b_death, b_verb, b_target = arg_b.s_Job.animate, arg_b.s_Job.animal, arg_b.s_Job.child, arg_b.s_Job.occupation, arg_b.s_Job.negative, arg_b.s_Job.take_money, arg_b.s_Job.offer_coupon, arg_b.s_Job.high_salary, arg_b.s_Job.teen, arg_b.s_Job.w_work, arg_b.s_Job.error_die, arg_b.s_Job.industry, arg_b.s_Job.monitoring, arg_b.s_Job.burn, arg_b.s_Job.cut, arg_b.s_Job.carry, arg_b.s_Job.drive, arg_b.s_Job.attack, arg_b.s_Job.nurture, arg_b.s_Job.animate_product, arg_b.s_Job.blood, arg_b.s_Job.food, arg_b.s_Job.fix, arg_b.s_Job.intelligence, arg_b.s_Job.strength, arg_b.s_Job.bed, arg_b.s_Job.sit, arg_b.s_Job.follow, arg_b.s_Job.own, arg_b.s_Job.death, arg_b.s_Job.verb, arg_b.s_Job.target
+    a_animate, a_animal, a_child, a_occupation, a_negative, a_take_money, a_offer_coupon, a_high_salary, a_teen, a_w_work, a_error_die, a_industry, a_monitoring, a_burn, a_cut, a_carry, a_drive, a_attack, a_nurture, a_animate_product, a_blood, a_food, a_fix, a_intelligence, a_strength, a_bed, a_sit, a_follow, a_own, a_death, a_foreigner, a_manual_labor, a_interact, a_verb, a_target = arg_a.s_Job.animate, arg_a.s_Job.animal, arg_a.s_Job.child, arg_a.s_Job.occupation, arg_a.s_Job.negative, arg_a.s_Job.take_money, arg_a.s_Job.offer_coupon, arg_a.s_Job.high_salary, arg_a.s_Job.teen, arg_a.s_Job.w_work, arg_a.s_Job.error_die, arg_a.s_Job.industry, arg_a.s_Job.monitoring, arg_a.s_Job.burn, arg_a.s_Job.cut, arg_a.s_Job.carry, arg_a.s_Job.drive, arg_a.s_Job.attack, arg_a.s_Job.nurture, arg_a.s_Job.animate_product, arg_a.s_Job.blood, arg_a.s_Job.food, arg_a.s_Job.fix, arg_a.s_Job.intelligence, arg_a.s_Job.strength, arg_a.s_Job.bed, arg_a.s_Job.sit, arg_a.s_Job.follow, arg_a.s_Job.own, arg_a.s_Job.death, arg_a.s_Job.foreigner, arg_a.s_Job.manual_labor, arg_a.s_Job.interact, arg_a.s_Job.verb, arg_a.s_Job.target
+    b_animate, b_animal, b_child, b_occupation, b_negative, b_take_money, b_offer_coupon, b_high_salary, b_teen, b_w_work, b_error_die, b_industry, b_monitoring, b_burn, b_cut, b_carry, b_drive, b_attack, b_nurture, b_animate_product, b_blood, b_food, b_fix, b_intelligence, b_strength, b_bed, b_sit, b_follow, b_own, b_death, b_foreigner, b_manual_labor, b_interact, b_verb, b_target = arg_b.s_Job.animate, arg_b.s_Job.animal, arg_b.s_Job.child, arg_b.s_Job.occupation, arg_b.s_Job.negative, arg_b.s_Job.take_money, arg_b.s_Job.offer_coupon, arg_b.s_Job.high_salary, arg_b.s_Job.teen, arg_b.s_Job.w_work, arg_b.s_Job.error_die, arg_b.s_Job.industry, arg_b.s_Job.monitoring, arg_b.s_Job.burn, arg_b.s_Job.cut, arg_b.s_Job.carry, arg_b.s_Job.drive, arg_b.s_Job.attack, arg_b.s_Job.nurture, arg_b.s_Job.animate_product, arg_b.s_Job.blood, arg_b.s_Job.food, arg_b.s_Job.fix, arg_b.s_Job.intelligence, arg_b.s_Job.strength, arg_b.s_Job.bed, arg_b.s_Job.sit, arg_b.s_Job.follow, arg_b.s_Job.own, arg_b.s_Job.death, arg_b.s_Job.foreigner, arg_b.s_Job.manual_labor, arg_b.s_Job.interact, arg_b.s_Job.verb, arg_b.s_Job.target
     common_verb     = list(set(a_verb)   & set(b_verb))
     common_target   = list(set(a_target) & set(b_target))
 #    combined_score = (len(common_verb) + len(common_target))
-    a_C_statement, a_D_statement = arg_a.s_C_statement.c_statement, arg_a.s_D_statement.d_statement
-    b_C_statement, b_D_statement = arg_b.s_C_statement.c_statement, arg_b.s_D_statement.d_statement
+    a_C_statement, a_D_statement = arg_a.s_C_statement, arg_a.s_D_statement
+    b_C_statement, b_D_statement = arg_b.s_C_statement, arg_b.s_D_statement
     a_C_number   , a_D_number    = len(a_C_statement), len(a_D_statement)
     b_C_number   , b_D_number    = len(b_C_statement), len(b_D_statement)
 
@@ -21,6 +21,7 @@ def AB_statement_func(arg_a, arg_b):
     b_matched_over      = AB_statement_class_py.find_match_jobs(arg_b.s_Job)
     a_matched_over_diff = AB_statement_class_py.find_match_jobs(arg_a.s_Job, use_unequal=True)
     b_matched_over_diff = AB_statement_class_py.find_match_jobs(arg_b.s_Job, use_unequal=True)
+
 #---
     # (animate(child, animal) を inanimate として扱う事) & (human を animal として扱う事)は加害性を有す。arg_a は (inanimate or animal) を扱い、arg_b は (animate or human) を扱うと、加害性が生じて良い。
 
@@ -157,7 +158,7 @@ def AB_statement_func(arg_a, arg_b):
                                             ,  ["Do you have coupons?", "Buy two, get one free!"]
                                             ,  []
                                             ,   []
-                                            ,   ["I have a coupon."])
+                                            ,   ["I have a coupon.", "Do you offer coupons?"])
        ,(a_high_salary  , b_high_salary     , f"Unlike {b_name}, {a_name} is a well-paid job."
                                             , f"Unlike {a_name}, {b_name} is a well-paid job."
                                             ,  ["I make a hundred thousand dollars a year."]
@@ -204,6 +205,15 @@ def AB_statement_func(arg_a, arg_b):
 
     if a_industry != "crime" and b_industry == "crime":
         attr_sentence_a_D.append(["I come again.", "Why are you getting angry?","What can I do for you?"])
+    if a_foreigner and b_foreigner:
+        attr_sentence_a_D.append(["I have always wanted to work in an international environment."])
+    if a_manual_labor and b_manual_labor:
+        attr_sentence_a_D.append(["I have always wanted to do manual labor "])
+    if a_interact and b_interact:
+        attr_sentence_a_D.append(["I have always wanted to do interactive work."])
+    if a_sit and b_sit:
+        attr_sentence_a_D.append(["I have always wanted to do seated job. "])
+
 
     information=[
     f"""<table>
@@ -267,6 +277,9 @@ Ali_speech_3=("It's difficult when many children won't be quiet."  # funny
 """
     ]
     base+=prompt_1
+
+#    a_speech=[f"{a_A_speech}", f"{b_A_speech}"]
+#    base+=a_speech
 
     please_1 = f" : Please answer according to teacher_data_0503. Please answer in English. If Bob mistakes Ali, a {a_name}, for a {b_name},"
     common_info   = f" {a_name} and {b_name} have something in common that is related to ({common_verb}, {common_target}, {overlap_attribute})."
